@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        #area {
+            font: normal 20pt Arial;
+            background: rgb(42,139,42);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">                                         <!-- Poderia chamar os eventos dentro dessa div adinando (onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()"), mas para o html não ficar muito poluído, colocamos dentro do <script> de forma diferente.  -->
+        Interaja...
+    </div>
+
+    <script>	
+        var a = window.document.getElementById('area');       // Esta função faz a ligação do objeto "a" com o elemento id="area" que está dentro do HTML
+        a.addEventListener('click', clicar);                  // Chamando o evento clicar
+        a.addEventListener('mouseenter', entrar);             // Chamando o evento entrar
+        a.addEventListener('mouseout', sair);                 // Chamando o evento sair
+
+        function clicar() {                                   // Vou dar uma função para o método "clicar()"
+            a.innerText = 'Clicou!';                          // Este evento vai mudar o nome dele para clicou 
+            a.style.background = 'red';
+        }
+        function entrar() {
+            a.innerText = 'Entrou!';
+            a.style.background = 'green';
+        }
+        function sair(){
+            a.innerText = 'Saiu!';
+            a.style.background = 'blue';
+        }
+    </script>
+    
+</body>
+</html>
